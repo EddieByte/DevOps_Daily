@@ -1,0 +1,32 @@
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Terraform variable files with sensitive data
+terraform.tfvars
+*.auto.tfvars
+
+# Terraform plan files
+*.tfplan
+
+# SSH keys
+*.pem
+*.key
+
+# Terraform directories
+.terraform/
+.terraform.lock.hcl
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*.backup
+*.bak
