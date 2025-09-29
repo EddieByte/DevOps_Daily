@@ -28,3 +28,23 @@ There will be a couple of files in each of these folders :
 1. .mvn
 2. src
 3. pom.xml
+# Folder Structure:
+
+There will be a couple of newly generated files in the folder which are:
+
+1. .mvn
+   - Contains Maven wrapper files
+   - wrapper/maven-wrapper.jar
+   - wrapper/maven-wrapper.properties 
+
+2. src
+   - main/java - Contains application source code
+   - main/resources - Contains application resources like properties files
+   - test/java - Contains test source code
+   - test/resources - Contains test resources
+
+3. pom.xml
+   - Project Object Model file
+   - Contains project configuration and dependencies
+   - Defines build settings, plugins and project metadata
+   - Core configuration file for Maven projects
