@@ -3,6 +3,7 @@
 ## Image Management
 
 ### Basic Image Operations
+
 ```bash
 # Download image
 docker pull <image_name>
@@ -35,6 +36,7 @@ docker system prune -a
 ## Container Management
 
 ### Container Lifecycle
+
 ```bash
 # Create and run container
 docker run <image_name>
@@ -62,6 +64,7 @@ docker rm -f <container_name>
 ```
 
 ### Bulk Container Operations
+
 ```bash
 # Stop all containers
 docker stop $(docker ps -aq)
@@ -77,6 +80,7 @@ docker rm -f $(docker ps -aq)
 ```
 
 ### Container Inspection & Interaction
+
 ```bash
 # View logs
 docker logs <container_name>
@@ -114,6 +118,7 @@ docker exec -it <container_name> bash
 ## Common Deployment Patterns
 
 ### Web Server Pattern
+
 ```bash
 # Tomcat/TomEE
 docker run --name webserver -p 7070:8080 -d tomee
@@ -125,6 +130,7 @@ docker run --name appserver -P -d nginx
 ```
 
 ### Development Server Pattern
+
 ```bash
 # Jenkins
 docker run --name devserver -p 9090:8080 -d jenkins/jenkins
@@ -133,6 +139,7 @@ docker run --name devserver -p 9090:8080 -d jenkins/jenkins
 ```
 
 ### Interactive OS Pattern
+
 ```bash
 # Ubuntu
 docker run --name myubuntu -it ubuntu
@@ -146,6 +153,7 @@ docker run --name mycentos -it centos
 ## Workflow Scenarios
 
 ### Scenario 1: Web Application Deployment
+
 ```bash
 # 1. Pull application image
 docker pull <app_image>
@@ -162,6 +170,7 @@ docker logs webapp
 ```
 
 ### Scenario 2: Development Environment
+
 ```bash
 # 1. Create development container
 docker run --name devenv -it -v $(pwd):/workspace ubuntu
@@ -176,6 +185,7 @@ docker exec -it devenv bash
 ```
 
 ### Scenario 3: Multi-Service Stack
+
 ```bash
 # Database
 docker run --name db -e MYSQL_ROOT_PASSWORD=secret -d mysql
@@ -190,6 +200,7 @@ docker run --name web --link app:backend -p 80:80 -d nginx
 ## Quick Reference Commands
 
 ### Health Checks
+
 ```bash
 # Check container status
 docker ps
@@ -202,6 +213,7 @@ docker port <container_name>
 ```
 
 ### Troubleshooting
+
 ```bash
 # View container logs
 docker logs <container_name>
@@ -218,6 +230,7 @@ docker exec -it <container_name> netstat -tlnp
 ```
 
 ### Cleanup Operations
+
 ```bash
 # Remove unused containers
 docker container prune
