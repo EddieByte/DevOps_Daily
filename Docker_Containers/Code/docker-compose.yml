@@ -1,0 +1,40 @@
+services:
+  selenium-hub:
+    image: selenium/hub:latest
+    container_name: selenium-hub
+    ports:
+      - "4445:4444"  # Selenium Hub UI
+    networks:
+      - selenium-grid
+
+  chrome:
+    image: selenium/node-chrome:latest
+    container_name: chrome
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    ports:
+      - "5901:5900"  # VNC access for Chrome
+    networks:
+      - selenium-grid
+
+  firefox:
+    image: selenium/node-firefox:latest
+    container_name: firefox
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    ports:
+      - "5902:5900"  # VNC access for Firefox
+    networks:
+      - selenium-grid
+
+networks:
+  selenium-grid:
+    driver: bridge

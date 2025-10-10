@@ -26,6 +26,7 @@ This guide covers how to create AWS EC2 instances, connect to them, and set up J
 ---
 
 ## Connect to an Instance
+
 1. Select the instance → Click **Connect**.  
 2. Copy the **SSH command** provided.  
 3. Open **Git Bash** in the folder with your `.pem` key.  
@@ -34,17 +35,19 @@ This guide covers how to create AWS EC2 instances, connect to them, and set up J
 
 ---
 
-## Installing Jenkins: 
+## Installing Jenkins
 
 **Note:** Always ensure to check the Java version you are installing and to ensure that it is compatible with the version of jenkins installed on your vm.
 
 ### 1. Install Java
+
 ```bash
 sudo apt update
 sudo apt install openjdk-17-jdk -y
 java --version
 
 ```
+
 ### 2. Install Git and Maven
 
 ```bash
@@ -52,6 +55,7 @@ sudo apt-get install -y git maven
 git --version
 mvn --version
 ```
+
 ### 3. Download Jenkins.war
 
 Head to the official Jenkins webpage and left click on the .SHA and select copy link, then paste into the terminal preceded by the command `wget`
@@ -65,11 +69,12 @@ wget https://get.jenkins.io/war-stable/latest/jenkins.war
 ```bash
 java -jar jenkins.war
 ```
+
 ### 5. Accessing Jenkins via GUI and Creating a Sample Job
 
-To access the Jenkins GUI and create your first job, start by opening your browser and navigating to http://<public-ip>:8080. You'll need to unlock Jenkins using the password displayed in your terminal. 
+To access the Jenkins GUI and create your first job, start by opening your browser and navigating to http://<public-ip>:8080. You'll need to unlock Jenkins using the password displayed in your terminal.
 
-Next, proceed with installing the suggested plugins. After plugin installation, create your first admin user account and complete the setup. 
+Next, proceed with installing the suggested plugins. After plugin installation, create your first admin user account and complete the setup.
 
 To create a sample job, navigate to "New Item" and select "Freestyle Project". In the project configuration, scroll down to the Build section and choose "Execute Shell". For a simple test, enter the command `echo "Hello Jenkins"` in the shell script area.
 echo "
